@@ -1,0 +1,4 @@
+- name: Mise à jour des paquets
+  apt:
+    update_cache: yes
+    upgrade: dist

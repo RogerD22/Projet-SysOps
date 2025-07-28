@@ -1,0 +1,11 @@
+- name: Créer un utilisateur d'application
+  user:
+    name: "{{ app_user }}"
+    shell: /bin/bash
+    groups: sudo
+
+- name: Ajouter clé SSH
+  authorized_key:
+    user: "{{ app_user }}"
+    state: present
+    key: "{{ lookup('file', './.ssh/ansible_user_key.pub') }}"

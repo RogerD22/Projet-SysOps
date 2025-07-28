@@ -1,0 +1,25 @@
+- name: Installer UFW
+  apt:
+    name: ufw
+    state: present
+
+- name: Autoriser SSH
+  ufw:
+    rule: allow
+    port: 22
+    proto: tcp
+
+- name: Autoriser HTTP & HTTPS
+  ufw:
+    rule: allow
+    port: "{{ item }}"
+    proto: tcp
+  loop: [80, 443]
+
+- name: Activer UFW
+  ufw:
+    state: enabled
+    policy: deny
+- name: Vérifier le statut de UFW
+  command: ufw status
+  register: ufw_status

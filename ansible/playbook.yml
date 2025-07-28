@@ -1,0 +1,9 @@
+- name: Provisionner le serveur complet
+  hosts: web
+  become: true
+
+  roles:
+    - common
+    - users
+    - nginx
+    - mysql

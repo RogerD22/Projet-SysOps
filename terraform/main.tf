@@ -122,8 +122,3 @@ resource "aws_security_group" "vm_sg" {
   }
 }
 
-
-output "public_ip" {
-  value = aws_eip.vm_eip.public_ip
-  description = "L'adresse IP publique de l'instance Ubuntu"
-}

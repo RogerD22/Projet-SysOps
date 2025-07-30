@@ -9,3 +9,4 @@ __pycache__/
 .terraform/
 *.ssh
 *.vscode
+.gitignore
